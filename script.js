@@ -1,4 +1,4 @@
-// Client side script for Help Bootstrap for Newcomer
+// Client side script for Bootstrap Plus
 
 document.addEventListener('DOMContentLoaded', () => {
     // Dynamically restructure code containers (move copy btn, remove header)
