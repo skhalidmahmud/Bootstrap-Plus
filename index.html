@@ -1,0 +1,1523 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Bootstrap for Newcomer</title>
+    <meta name="description" content="Use Bootstrap and make life easier. Explore code examples, responsive cards, headers, footers, buttons, lists, and real-time JS widgets.">
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Bootstrap Icons CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Top Sticky Header -->
+    <nav class="navbar navbar-expand-lg navbar-custom fixed-top py-2">
+        <div class="container-fluid px-3 px-md-4">
+            <!-- Mobile Toggle Button -->
+            <button class="btn btn-link text-body d-lg-none me-2 p-0" id="sidebarToggle" aria-label="Toggle navigation">
+                <i class="bi bi-list fs-2"></i>
+            </button>
+
+            <!-- Brand Logo / Title -->
+            <a class="navbar-brand d-flex align-items-center gap-2 me-lg-4" href="#">
+                <i class="bi bi-bootstrap-fill fs-3 text-primary"></i>
+                <div class="d-none d-sm-block">
+                    <span class="brand-title">Help Bootstrap</span>
+                    <span class="d-block text-muted" style="font-size: 0.7rem;">for Newcomer</span>
+                </div>
+            </a>
+
+            <!-- Floating Search option -->
+            <div class="search-container mx-auto d-flex justify-content-center">
+                <div class="position-relative w-100">
+                    <i class="bi bi-search search-icon-btn"></i>
+                    <input type="text" class="form-control search-input" id="searchInput" placeholder="Search components (e.g. Nav, Card, Table)..." autocomplete="off">
+                    <div class="search-results-dropdown" id="searchResults"></div>
+                </div>
+            </div>
+
+            <!-- Header buttons -->
+            <div class="d-flex align-items-center gap-2">
+                <!-- Day Night Theme Button -->
+                <button class="btn btn-icon border-0 px-2 py-1" id="themeToggle" title="Toggle Day/Night Mode">
+                    <i class="bi bi-moon-stars-fill"></i>
+                </button>
+                <!-- Back Main Button -->
+                <a href="https://thinkori.com" class="btn btn-outline-primary btn-sm back-btn d-flex align-items-center gap-1">
+                    <i class="bi bi-arrow-left-short fs-5"></i>
+                    <span class="d-none d-md-inline">Back to thinkori.com</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar Overlay for Mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Layout Shell -->
+    <div class="layout-wrapper">
+        
+        <!-- Collapsible Responsive Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-section-title">Getting Started</div>
+            <a href="#cdn-section" class="sidebar-nav-link active">
+                <i class="bi bi-cloud-download"></i> CDN Setup
+            </a>
+            <a href="#colors-section" class="sidebar-nav-link">
+                <i class="bi bi-palette"></i> Colors & Background
+            </a>
+            <a href="#spacing-section" class="sidebar-nav-link">
+                <i class="bi bi-grid-3x3-gap"></i> Margin & Padding
+            </a>
+
+            <div class="sidebar-section-title">Navigation Elements</div>
+            <a href="#breadcrumb-section" class="sidebar-nav-link">
+                <i class="bi bi-chevron-right"></i> Breadcrumbs
+            </a>
+            <a href="#headertop-section" class="sidebar-nav-link">
+                <i class="bi bi-layout-text-window-reverse"></i> Header Top Section
+            </a>
+            <a href="#navigation-section" class="sidebar-nav-link">
+                <i class="bi bi-menu-button-wide"></i> Navigation (Navbar)
+            </a>
+
+            <div class="sidebar-section-title">Sliders & Carousels</div>
+            <a href="#carousel-section" class="sidebar-nav-link">
+                <i class="bi bi-images"></i> Bootstrap Carousel
+            </a>
+            <a href="#owl-section" class="sidebar-nav-link">
+                <i class="bi bi-collection-play"></i> Owl Carousel Style
+            </a>
+
+            <div class="sidebar-section-title">Common Components</div>
+            <a href="#buttons-section" class="sidebar-nav-link">
+                <i class="bi bi-toggle-on"></i> List of Buttons
+            </a>
+            <a href="#timeline-section" class="sidebar-nav-link">
+                <i class="bi bi-clock-history"></i> Education Timeline
+            </a>
+            <a href="#lists-section" class="sidebar-nav-link">
+                <i class="bi bi-list-ul"></i> Many Type of Lists
+            </a>
+
+            <div class="sidebar-section-title">Cards & Layouts</div>
+            <a href="#cards-section" class="sidebar-nav-link">
+                <i class="bi bi-card-image"></i> Card Variations
+            </a>
+            <a href="#card-grids-section" class="sidebar-nav-link">
+                <i class="bi bi-columns-gap"></i> Multi-Column Grids
+            </a>
+
+            <div class="sidebar-section-title">Layout & Structure</div>
+            <a href="#sidebars-section" class="sidebar-nav-link">
+                <i class="bi bi-layout-sidebar-inset"></i> Sidebar Component
+            </a>
+            <a href="#big-footer-section" class="sidebar-nav-link">
+                <i class="bi bi-layout-split"></i> Big Footer
+            </a>
+            <a href="#footer-section" class="sidebar-nav-link">
+                <i class="bi bi-window-dock"></i> Simple Footer
+            </a>
+
+            <div class="sidebar-section-title">Forms & User Interactivity</div>
+            <a href="#blog-comments-section" class="sidebar-nav-link">
+                <i class="bi bi-chat-left-text"></i> Post Tags & Comments
+            </a>
+            <a href="#login-section" class="sidebar-nav-link">
+                <i class="bi bi-shield-lock"></i> Login Form
+            </a>
+            <a href="#feedback-section" class="sidebar-nav-link">
+                <i class="bi bi-star"></i> Feedback Section
+            </a>
+
+            <div class="sidebar-section-title">Custom Extensibility</div>
+            <a href="#realtime-section" class="sidebar-nav-link">
+                <i class="bi bi-cpu"></i> Real-time JS Function
+            </a>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Page Intro Banner -->
+            <div class="p-4 p-md-5 mb-5 rounded-4 text-bg-primary shadow-sm bg-gradient position-relative overflow-hidden">
+                <div class="col-lg-8 position-relative" style="z-index: 2;">
+                    <h1 class="display-5 fw-extrabold mb-3">Help Bootstrap for Newcomer</h1>
+                    <p class="lead mb-4">Use Bootstrap and make life easier. Browse copy-pasteable components, live utilities setup, custom grids, timelines, responsive navigation modules, and dynamic UI elements built directly for swift integration.</p>
+                    <div class="d-flex flex-wrap gap-2">
+                        <a href="#cdn-section" class="btn btn-light btn-lg px-4 fs-6 fw-bold text-primary">Get Started</a>
+                        <a href="#realtime-section" class="btn btn-outline-light btn-lg px-4 fs-6">Try Live Widget</a>
+                    </div>
+                </div>
+                <!-- Abstract visual circles in background -->
+                <div class="position-absolute end-0 bottom-0 translate-middle-y opacity-25 d-none d-lg-block" style="z-index: 1;">
+                    <i class="bi bi-bootstrap-fill" style="font-size: 15rem; transform: rotate(-15deg); display: block;"></i>
+                </div>
+            </div>
+
+            <!-- SECTION 1: CDN Setup -->
+            <section class="scroll-section" id="cdn-section">
+                <div class="component-card">
+                    <div class="component-header-section d-flex justify-content-between align-items-center">
+                        <h2 class="h4 mb-0">CDN Setup</h2>
+                        <span class="badge bg-secondary-subtle text-secondary component-badge">SETUP</span>
+                    </div>
+                    <div class="component-body-section">
+                        <p class="text-muted">Place this core template setup in your html header. Includes Bootstrap 5.3 CSS, JS bundle, and Icons.</p>
+                        <div class="row g-4">
+                            <div class="col-xl-6">
+                                <div class="fw-bold mb-2 small text-muted text-uppercase">HTML Skeleton Preview</div>
+                                <div class="preview-container">
+                                    <div class="text-center py-4">
+                                        <i class="bi bi-cloud-check fs-1 text-success"></i>
+                                        <h5 class="mt-3">Ready to copy and deploy</h5>
+                                        <p class="small text-muted mb-0">Include CSS in <code>&lt;head&gt;</code> and JS before <code>&lt;/body&gt;</code>.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="fw-bold mb-2 small text-muted text-uppercase">Code Copy Section</div>
+                                <div class="code-container">
+                                    <div class="code-header">
+                                        <span class="code-language">HTML</span>
+                                        <button class="copy-btn"><i class="bi bi-clipboard me-1"></i> Copy</button>
+                                    </div>
+                                    <pre class="code-pre"><code>&lt;!-- Bootstrap 5.3 CSS CDN --&gt;
+&lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"&gt;
+
+&lt;!-- Bootstrap Icons CDN --&gt;
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"&gt;
+
+&lt;!-- Bootstrap JS Bundle CDN --&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"&gt;&lt;/script&gt;</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 2: Colors and Bg-colors -->
+            <section class="scroll-section" id="colors-section">
+                <div class="component-card">
+                    <div class="component-header-section d-flex justify-content-between align-items-center">
+                        <h2 class="h4 mb-0">Colors & Background</h2>
+                        <span class="badge bg-info-subtle text-info component-badge">UTILITIES</span>
+                    </div>
+                    <div class="component-body-section">
+                        <p class="text-muted">Bootstrap utility classes for custom foreground colors and background colors.</p>
+                        <div class="row g-4">
+                            <div class="col-xl-6">
+                                <div class="fw-bold mb-2 small text-muted text-uppercase">Color Palette Previews</div>
+                                <div class="preview-container">
+                                    <div class="row g-2">
+                                        <div class="col-6 col-md-3">
+                                            <div class="color-swatch bg-primary">Primary</div>
+                                        </div>
+                                        <div class="col-6 col-md-3">
+                                            <div class="color-swatch bg-secondary">Secondary</div>
+                                        </div>
+                                        <div class="col-6 col-md-3">
+                                            <div class="color-swatch bg-success">Success</div>
+                                        </div>
+                                        <div class="col-6 col-md-3">
+                                            <div class="color-swatch bg-danger">Danger</div>
+                                        </div>
+                                        <div class="col-6 col-md-3">
+                                            <div class="color-swatch bg-warning text-dark">Warning</div>
+                                        </div>
+                                        <div class="col-6 col-md-3">
+                                            <div class="color-swatch bg-info text-dark">Info</div>
+                                        </div>
+                                        <div class="col-6 col-md-3">
+                                            <div class="color-swatch bg-dark">Dark</div>
+                                        </div>
+                                        <div class="col-6 col-md-3">
+                                            <div class="color-swatch bg-primary-subtle text-primary">Subtle</div>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3">
+                                        <span class="text-primary me-2">.text-primary</span>
+                                        <span class="text-success me-2">.text-success</span>
+                                        <span class="text-danger me-2">.text-danger</span>
+                                        <span class="text-warning bg-dark px-1 rounded me-2">.text-warning</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="fw-bold mb-2 small text-muted text-uppercase">Code Copy Section</div>
+                                <div class="code-container">
+                                    <div class="code-header">
+                                        <span class="code-language">HTML</span>
+                                        <button class="copy-btn"><i class="bi bi-clipboard me-1"></i> Copy</button>
+                                    </div>
+                                    <pre class="code-pre"><code>&lt;!-- Text Colors --&gt;
+&lt;p class=&quot;text-primary&quot;&gt;Primary text color&lt;/p&gt;
+&lt;p class=&quot;text-success&quot;&gt;Success text color&lt;/p&gt;
+&lt;p class=&quot;text-danger&quot;&gt;Danger text color&lt;/p&gt;
+&lt;p class=&quot;text-warning&quot;&gt;Warning text color&lt;/p&gt;
+
+&lt;!-- Background Colors --&gt;
+&lt;div class=&quot;bg-primary text-white p-3 rounded&quot;&gt;Primary Background&lt;/div&gt;
+&lt;div class=&quot;bg-success text-white p-3 rounded&quot;&gt;Success Background&lt;/div&gt;
+&lt;div class=&quot;bg-danger text-white p-3 rounded&quot;&gt;Danger Background&lt;/div&gt;
+&lt;div class=&quot;bg-light text-dark p-3 border rounded&quot;&gt;Light Background&lt;/div&gt;
+&lt;div class=&quot;bg-dark text-white p-3 rounded&quot;&gt;Dark Background&lt;/div&gt;
+&lt;div class=&quot;bg-primary-subtle text-primary p-3 rounded&quot;&gt;Subtle Accent Background&lt;/div&gt;</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 3: Margins and Paddings -->
+            <section class="scroll-section" id="spacing-section">
+                <div class="component-card">
+                    <div class="component-header-section d-flex justify-content-between align-items-center">
+                        <h2 class="h4 mb-0">Margin & Padding</h2>
+                        <span class="badge bg-info-subtle text-info component-badge">UTILITIES</span>
+                    </div>
+                    <div class="component-body-section">
+                        <p class="text-muted">Spacing utilities match parameters: <code>{property}{sides}-{size}</code> where property is <code>m</code> or <code>p</code> and size ranges from <code>0</code> to <code>5</code>.</p>
+                        <div class="row g-4">
+                            <div class="col-xl-6">
+                                <div class="fw-bold mb-2 small text-muted text-uppercase">Spacing Preview Visual</div>
+                                <div class="preview-container">
+                                    <div class="spacing-box mb-2">
+                                        <small class="d-block text-primary fw-bold mb-1">Margin Area (Outer Spacing)</small>
+                                        <div class="spacing-inner">
+                                            Padding Area (Inner Spacing)
+                                        </div>
+                                    </div>
+                                    <span class="small text-muted">Example combines outer margin spacing and internal text padding grid.</span>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="fw-bold mb-2 small text-muted text-uppercase">Code Copy Section</div>
+                                <div class="code-container">
+                                    <div class="code-header">
+                                        <span class="code-language">HTML</span>
+                                        <button class="copy-btn"><i class="bi bi-clipboard me-1"></i> Copy</button>
+                                    </div>
+                                    <pre class="code-pre"><code>&lt;!-- Margin (Outer Spacing) examples --&gt;
+&lt;div class=&quot;m-3&quot;&gt;Margin on all sides (1rem)&lt;/div&gt;
+&lt;div class=&quot;mt-4&quot;&gt;Margin top only (1.5rem)&lt;/div&gt;
+&lt;div class=&quot;mb-5&quot;&gt;Margin bottom only (3rem)&lt;/div&gt;
+&lt;div class=&quot;mx-auto&quot; style=&quot;width: 200px;&quot;&gt;Centred element via horizontal margin auto&lt;/div&gt;
+&lt;div class=&quot;ms-2&quot;&gt;Margin start / left spacing (0.5rem)&lt;/div&gt;
+
+&lt;!-- Padding (Inner Spacing) examples --&gt;
+&lt;div class=&quot;p-3 bg-light text-dark&quot;&gt;Padding on all sides (1rem)&lt;/div&gt;
+&lt;div class=&quot;py-2 px-4 bg-light text-dark&quot;&gt;Padding top/bottom (0.5rem) and left/right (1.5rem)&lt;/div&gt;
+&lt;div class=&quot;pe-5 bg-light text-dark&quot;&gt;Padding end / right spacing (3rem)&lt;/div&gt;</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 4: Breadcrumbs -->
+            <section class="scroll-section" id="breadcrumb-section">
+                <div class="component-card">
+                    <div class="component-header-section d-flex justify-content-between align-items-center">
+                        <h2 class="h4 mb-0">Breadcrumbs</h2>
+                        <span class="badge bg-primary-subtle text-primary component-badge">NAVIGATION</span>
+                    </div>
+                    <div class="component-body-section">
+                        <p class="text-muted">Display directory path location of current page in hierarchical structure.</p>
+                        <div class="row g-4">
+                            <div class="col-xl-6">
+                                <div class="fw-bold mb-2 small text-muted text-uppercase">Breadcrumbs Preview</div>
+                                <div class="preview-container">
+                                    <!-- Default -->
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                            <li class="breadcrumb-item"><a href="#">Library</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">Data</li>
+                                        </ol>
+                                    </nav>
+                                    <!-- Separator Customization -->
+                                    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="mt-3">
+                                        <ol class="breadcrumb mb-0">
+                                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                            <li class="breadcrumb-item"><a href="#">Components</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">Breadcrumb</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="fw-bold mb-2 small text-muted text-uppercase">Code Copy Section</div>
+                                <div class="code-container">
+                                    <div class="code-header">
+                                        <span class="code-language">HTML</span>
+                                        <button class="copy-btn"><i class="bi bi-clipboard me-1"></i> Copy</button>
+                                    </div>
+                                    <pre class="code-pre"><code>&lt;!-- Standard Breadcrumb --&gt;
+&lt;nav aria-label=&quot;breadcrumb&quot;&gt;
+  &lt;ol class=&quot;breadcrumb&quot;&gt;
+    &lt;li class=&quot;breadcrumb-item&quot;&gt;&lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;breadcrumb-item&quot;&gt;&lt;a href=&quot;#&quot;&gt;Library&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;breadcrumb-item active&quot; aria-current=&quot;page&quot;&gt;Data&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/nav&gt;
+
+&lt;!-- Custom Divider Chevron Breadcrumb --&gt;
+&lt;nav style=&quot;--bs-breadcrumb-divider: &#x27;&gt;&#x27;;&quot; aria-label=&quot;breadcrumb&quot;&gt;
+  &lt;ol class=&quot;breadcrumb&quot;&gt;
+    &lt;li class=&quot;breadcrumb-item&quot;&gt;&lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;breadcrumb-item&quot;&gt;&lt;a href=&quot;#&quot;&gt;Components&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;breadcrumb-item active&quot; aria-current=&quot;page&quot;&gt;Breadcrumb&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/nav&gt;</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 5: Header Top Section -->
+            <section class="scroll-section" id="headertop-section">
+                <div class="component-card">
+                    <div class="component-header-section d-flex justify-content-between align-items-center">
+                        <h2 class="h4 mb-0">Header Top Section</h2>
+                        <span class="badge bg-primary-subtle text-primary component-badge">NAVIGATION</span>
+                    </div>
+                    <div class="component-body-section">
+                        <p class="text-muted">An info ribbon bar placed above navigation headers. Displays contact links, opening hours, or dynamic notices.</p>
+                        <div class="row g-4">
+                            <div class="col-xl-6">
+                                <div class="fw-bold mb-2 small text-muted text-uppercase">Header Bar Ribbon Preview</div>
+                                <div class="preview-container px-0 py-2">
+                                    <div class="bg-dark text-light py-2 px-3 small">
+                                        <div class="container-fluid d-flex flex-wrap justify-content-between align-items-center gap-2">
+                                            <div class="d-flex align-items-center gap-3">
+                                                <span><i class="bi bi-envelope-fill me-1 text-primary"></i> info@thinkori.com</span>
+                                                <span class="d-none d-sm-inline"><i class="bi bi-telephone-fill me-1 text-primary"></i> +1 234 5678</span>
+                                            </div>
+                                            <div class="d-flex align-items-center gap-3">
+                                                <a href="#" class="text-light text-decoration-none"><i class="bi bi-facebook"></i></a>
+                                                <a href="#" class="text-light text-decoration-none"><i class="bi bi-twitter-x"></i></a>
+                                                <a href="#" class="text-light text-decoration-none"><i class="bi bi-github"></i></a>
+                                                <span class="text-secondary">|</span>
+                                                <a href="#" class="text-light text-decoration-none small">Register</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="fw-bold mb-2 small text-muted text-uppercase">Code Copy Section</div>
+                                <div class="code-container">
+                                    <div class="code-header">
+                                        <span class="code-language">HTML</span>
+                                        <button class="copy-btn"><i class="bi bi-clipboard me-1"></i> Copy</button>
+                                    </div>
+                                    <pre class="code-pre"><code>&lt;div class=&quot;bg-dark text-light py-2 px-3 small&quot;&gt;
+    &lt;div class=&quot;container-fluid d-flex flex-wrap justify-content-between align-items-center gap-2&quot;&gt;
+        &lt;div class=&quot;d-flex align-items-center gap-3&quot;&gt;
+            &lt;span&gt;&lt;i class=&quot;bi bi-envelope-fill me-1 text-primary&quot;&gt;&lt;/i&gt; info@thinkori.com&lt;/span&gt;
+            &lt;span class=&quot;d-none d-sm-inline&quot;&gt;&lt;i class=&quot;bi bi-telephone-fill me-1 text-primary&quot;&gt;&lt;/i&gt; +1 234 5678&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;d-flex align-items-center gap-3&quot;&gt;
+            &lt;a href=&quot;#&quot; class=&quot;text-light text-decoration-none&quot;&gt;&lt;i class=&quot;bi bi-facebook&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+            &lt;a href=&quot;#&quot; class=&quot;text-light text-decoration-none&quot;&gt;&lt;i class=&quot;bi bi-twitter-x&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+            &lt;a href=&quot;#&quot; class=&quot;text-light text-decoration-none&quot;&gt;&lt;i class=&quot;bi bi-github&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+            &lt;span class=&quot;text-secondary&quot;&gt;|&lt;/span&gt;
+            &lt;a href=&quot;#&quot; class=&quot;text-light text-decoration-none small&quot;&gt;Register&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 6: Navigation Navbar -->
+            <section class="scroll-section" id="navigation-section">
+                <div class="component-card">
+                    <div class="component-header-section d-flex justify-content-between align-items-center">
+                        <h2 class="h4 mb-0">Navigation (Navbar)</h2>
+                        <span class="badge bg-primary-subtle text-primary component-badge">NAVIGATION</span>
+                    </div>
+                    <div class="component-body-section">
+                        <p class="text-muted">Responsive collapsing navigation layouts featuring menus, dropdowns, and search controls.</p>
+                        <div class="row g-4">
+                            <div class="col-xl-6">
+                                <div class="fw-bold mb-2 small text-muted text-uppercase">Navbar Render Preview</div>
+                                <div class="preview-container px-0 py-2">
+                                    <nav class="navbar navbar-expand-md bg-body-tertiary px-3 w-100">
+                                        <div class="container-fluid px-0">
+                                            <a class="navbar-brand fw-bold text-primary" href="#">Thinkori</a>
+                                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#previewNavbar" aria-controls="previewNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                                                <span class="navbar-toggler-icon"></span>
+                                            </button>
+                                            <div class="collapse navbar-collapse" id="previewNavbar">
+                                                <ul class="navbar-nav me-auto mb-2 mb-md-0 small">
+                                                    <li class="nav-item">
+                                                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="#">Services</a>
+                                                    </li>
+                                                    <li class="nav-item dropdown">
+                                                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                            Resources
+                                                        </a>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a class="dropdown-menu-item dropdown-item" href="#">Tutorials</a></li>
+                                                            <li><a class="dropdown-menu-item dropdown-item" href="#">Pricing</a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                                <form class="d-flex" role="search">
+                                                    <input class="form-control form-control-sm me-2" type="search" placeholder="Search" aria-label="Search">
+                                                    <button class="btn btn-outline-primary btn-sm" type="submit">Go</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="fw-bold mb-2 small text-muted text-uppercase">Code Copy Section</div>
+                                <div class="code-container">
+                                    <div class="code-header">
+                                        <span class="code-language">HTML</span>
+                                        <button class="copy-btn"><i class="bi bi-clipboard me-1"></i> Copy</button>
+                                    </div>
+                                    <pre class="code-pre"><code>&lt;nav class=&quot;navbar navbar-expand-lg bg-body-tertiary px-3&quot;&gt;
+  &lt;div class=&quot;container-fluid&quot;&gt;
+    &lt;a class=&quot;navbar-brand fw-bold text-primary&quot; href=&quot;#&quot;&gt;Thinkori&lt;/a&gt;
+    &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbarSupportedContent&quot; aria-controls=&quot;navbarSupportedContent&quot; aria-expanded=&quot;false&quot; aria-label=&quot;Toggle navigation&quot;&gt;
+      &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbarSupportedContent&quot;&gt;
+      &lt;ul class=&quot;navbar-nav me-auto mb-2 mb-lg-0&quot;&gt;
+        &lt;li class=&quot;nav-item&quot;&gt;
+          &lt;a class=&quot;nav-link active&quot; aria-current=&quot;page&quot; href=&quot;#&quot;&gt;Home&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;nav-item&quot;&gt;
+          &lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Services&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;nav-item dropdown&quot;&gt;
+          &lt;a class=&quot;nav-link dropdown-toggle&quot; href=&quot;#&quot; role=&quot;button&quot; data-bs-toggle=&quot;dropdown&quot; aria-expanded=&quot;false&quot;&gt;
+            Resources
+          &lt;/a&gt;
+          &lt;ul class=&quot;dropdown-menu&quot;&gt;
+            &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Tutorials&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Pricing&lt;/a&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;form class=&quot;d-flex&quot; role=&quot;search&quot;&gt;
+        &lt;input class=&quot;form-control me-2&quot; type=&quot;search&quot; placeholder=&quot;Search&quot; aria-label=&quot;Search&quot;&gt;
+        &lt;button class=&quot;btn btn-outline-primary&quot; type=&quot;submit&quot;&gt;Search&lt;/button&gt;
+      &lt;/form&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 7: Bootstrap Carousel -->
+            <section class="scroll-section" id="carousel-section">
+                <div class="component-card">
+                    <div class="component-header-section d-flex justify-content-between align-items-center">
+                        <h2 class="h4 mb-0">Bootstrap Carousel</h2>
+                        <span class="badge bg-success-subtle text-success component-badge">SLIDER</span>
+                    </div>
+                    <div class="component-body-section">
+                        <p class="text-muted">Standard responsive slides slider component featuring built-in overlay captions and control buttons.</p>
+                        <div class="row g-4">
+                            <div class="col-xl-6">
+                                <div class="fw-bold mb-2 small text-muted text-uppercase">Carousel Render Preview</div>
+                                <div class="preview-container p-0">
+                                    <div id="demoCarousel" class="carousel slide" data-bs-ride="carousel">
+                                        <div class="carousel-indicators">
+                                            <button type="button" data-bs-target="#demoCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                            <button type="button" data-bs-target="#demoCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                        </div>
+                                        <div class="carousel-inner" style="height: 200px;">
+                                            <div class="carousel-item active bg-primary text-white h-100">
+                                                <div class="d-flex flex-column justify-content-center align-items-center h-100 px-5 text-center">
+                                                    <h5>First Slide Title</h5>
+                                                    <p class="small">Interactive responsive slides made simple with Bootstrap engine.</p>
+                                                </div>
+                                            </div>
+                                            <div class="carousel-item bg-info text-white h-100">
+                                                <div class="d-flex flex-column justify-content-center align-items-center h-100 px-5 text-center">
+                                                    <h5>Second Slide Title</h5>
+                                                    <p class="small">Fully customizable layout patterns optimized for fluid navigation.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button class="carousel-control-prev" type="button" data-bs-target="#demoCarousel" data-bs-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Previous</span>
+                                        </button>
+                                        <button class="carousel-control-next" type="button" data-bs-target="#demoCarousel" data-bs-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Next</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="fw-bold mb-2 small text-muted text-uppercase">Code Copy Section</div>
+                                <div class="code-container">
+                                    <div class="code-header">
+                                        <span class="code-language">HTML</span>
+                                        <button class="copy-btn"><i class="bi bi-clipboard me-1"></i> Copy</button>
+                                    </div>
+                                    <pre class="code-pre"><code>&lt;div id=&quot;myCarousel&quot; class=&quot;carousel slide&quot; data-bs-ride=&quot;carousel&quot;&gt;
+  &lt;!-- Indicators --&gt;
+  &lt;div class=&quot;carousel-indicators&quot;&gt;
+    &lt;button type=&quot;button&quot; data-bs-target=&quot;#myCarousel&quot; data-bs-slide-to=&quot;0&quot; class=&quot;active&quot; aria-current=&quot;true&quot; aria-label=&quot;Slide 1&quot;&gt;&lt;/button&gt;
+    &lt;button type=&quot;button&quot; data-bs-target=&quot;#myCarousel&quot; data-bs-slide-to=&quot;1&quot; aria-label=&quot;Slide 2&quot;&gt;&lt;/button&gt;
+  &lt;/div&gt;
+  
+  &lt;!-- Slides --&gt;
+  &lt;div class=&quot;carousel-inner&quot;&gt;
+    &lt;div class=&quot;carousel-item active bg-primary text-white py-5&quot;&gt;
+      &lt;div class=&quot;text-center&quot;&gt;
+        &lt;h5&gt;First Slide Title&lt;/h5&gt;
+        &lt;p&gt;Interactive responsive slides made simple with Bootstrap engine.&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;carousel-item bg-info text-white py-5&quot;&gt;
+      &lt;div class=&quot;text-center&quot;&gt;
+        &lt;h5&gt;Second Slide Title&lt;/h5&gt;
+        &lt;p&gt;Fully customizable layout patterns optimized for fluid navigation.&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  
+  &lt;!-- Controls --&gt;
+  &lt;button class=&quot;carousel-control-prev&quot; type=&quot;button&quot; data-bs-target=&quot;#myCarousel&quot; data-bs-slide=&quot;prev&quot;&gt;
+    &lt;span class=&quot;carousel-control-prev-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+    &lt;span class=&quot;visually-hidden&quot;&gt;Previous&lt;/span&gt;
+  &lt;/button&gt;
+  &lt;button class=&quot;carousel-control-next&quot; type=&quot;button&quot; data-bs-target=&quot;#myCarousel&quot; data-bs-slide=&quot;next&quot;&gt;
+    &lt;span class=&quot;carousel-control-next-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+    &lt;span class=&quot;visually-hidden&quot;&gt;Next&lt;/span&gt;
+  &lt;/button&gt;
+&lt;/div&gt;</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 8: Owl Carousel Style -->
+            <section class="scroll-section" id="owl-section">
+                <div class="component-card">
+                    <div class="component-header-section d-flex justify-content-between align-items-center">
+                        <h2 class="h4 mb-0">Owl Carousel Style</h2>
+                        <span class="badge bg-success-subtle text-success component-badge">SLIDER</span>
+                    </div>
+                    <div class="component-body-section">
+                        <p class="text-muted">A multi-item sliding deck layout mimicking jQuery Owl Carousel. Displays multiple cards side-by-side with dot pagination.</p>
+                        <div class="row g-4">
+                            <div class="col-xl-6">
+                                <div class="fw-bold mb-2 small text-muted text-uppercase">Owl Slider Preview</div>
+                                <div class="preview-container px-3">
+                                    <div class="owl-simulation">
+                                        <!-- Track -->
+                                        <div class="owl-sim-track">
+                                            <div class="owl-sim-item">
+                                                <div class="owl-sim-card">
+                                                    <i class="bi bi-laptop fs-3 text-primary mb-2"></i>
+                                                    <h6 class="mb-1">Web Design</h6>
+                                                    <p class="small text-muted mb-0">Responsive frontend layout.</p>
+                                                </div>
+                                            </div>
+                                            <div class="owl-sim-item">
+                                                <div class="owl-sim-card">
+                                                    <i class="bi bi-phone fs-3 text-success mb-2"></i>
+                                                    <h6 class="mb-1">App Dev</h6>
+                                                    <p class="small text-muted mb-0">Native mobile interfaces.</p>
+                                                </div>
+                                            </div>
+                                            <div class="owl-sim-item">
+                                                <div class="owl-sim-card">
+                                                    <i class="bi bi-database fs-3 text-info mb-2"></i>
+                                                    <h6 class="mb-1">Databases</h6>
+                                                    <p class="small text-muted mb-0">Scalable cloud servers.</p>
+                                                </div>
+                                            </div>
+                                            <div class="owl-sim-item">
+                                                <div class="owl-sim-card">
+                                                    <i class="bi bi-shield-check fs-3 text-danger mb-2"></i>
+                                                    <h6 class="mb-1">Security</h6>
+                                                    <p class="small text-muted mb-0">End-to-end data safety.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Controls -->
+                                        <button class="owl-nav-btn owl-nav-prev"><i class="bi bi-chevron-left"></i></button>
+                                        <button class="owl-nav-btn owl-nav-next"><i class="bi bi-chevron-right"></i></button>
+                                    </div>
+                                    <div class="owl-sim-dots"></div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="fw-bold mb-2 small text-muted text-uppercase">Code Copy Section</div>
+                                <div class="code-container">
+                                    <div class="code-header">
+                                        <span class="code-language">HTML & CSS Structure</span>
+                                        <button class="copy-btn"><i class="bi bi-clipboard me-1"></i> Copy</button>
+                                    </div>
+                                    <pre class="code-pre"><code>&lt;!-- Custom Multi-item Slider Structure (Requires style.css / script.js implementation) --&gt;
+&lt;div class=&quot;owl-simulation&quot;&gt;
+  &lt;div class=&quot;owl-sim-track&quot;&gt;
+    &lt;div class=&quot;owl-sim-item&quot;&gt;
+      &lt;div class=&quot;owl-sim-card&quot;&gt;
+        &lt;i class=&quot;bi bi-laptop fs-3 text-primary mb-2&quot;&gt;&lt;/i&gt;
+        &lt;h6 class=&quot;mb-1&quot;&gt;Web Design&lt;/h6&gt;
+        &lt;p class=&quot;small text-muted mb-0&quot;&gt;Responsive frontend layouts.&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;owl-sim-item&quot;&gt;
+      &lt;div class=&quot;owl-sim-card&quot;&gt;
+        &lt;i class=&quot;bi bi-phone fs-3 text-success mb-2&quot;&gt;&lt;/i&gt;
+        &lt;h6 class=&quot;mb-1&quot;&gt;App Dev&lt;/h6&gt;
+        &lt;p class=&quot;small text-muted mb-0&quot;&gt;Native mobile interfaces.&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;owl-sim-item&quot;&gt;
+      &lt;div class=&quot;owl-sim-card&quot;&gt;
+        &lt;i class=&quot;bi bi-database fs-3 text-info mb-2&quot;&gt;&lt;/i&gt;
+        &lt;h6 class=&quot;mb-1&quot;&gt;Databases&lt;/h6&gt;
+        &lt;p class=&quot;small text-muted mb-0&quot;&gt;Scalable cloud servers.&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;!-- Prev/Next Navigation Controls --&gt;
+  &lt;button class=&quot;owl-nav-btn owl-nav-prev&quot;&gt;&lt;i class=&quot;bi bi-chevron-left&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+  &lt;button class=&quot;owl-nav-btn owl-nav-next&quot;&gt;&lt;i class=&quot;bi bi-chevron-right&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+&lt;/div&gt;
+&lt;!-- Dot indicators --&gt;
+&lt;div class=&quot;owl-sim-dots&quot;&gt;&lt;/div&gt;</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 9: List of Buttons -->
+            <section class="scroll-section" id="buttons-section">
+                <div class="component-card">
+                    <div class="component-header-section d-flex justify-content-between align-items-center">
+                        <h2 class="h4 mb-0">List of Buttons</h2>
+                        <span class="badge bg-warning-subtle text-warning component-badge">ELEMENTS</span>
+                    </div>
+                    <div class="component-body-section">
+                        <p class="text-muted">Diverse buttons collections: sizes, outlines, block containers, and custom gradients.</p>
+                        <div class="row g-4">
+                            <div class="col-xl-6">
+                                <div class="fw-bold mb-2 small text-muted text-uppercase">Buttons List Preview</div>
+                                <div class="preview-container">
+                                    <div class="d-flex flex-wrap gap-2 mb-3">
+                                        <button class="btn btn-primary">Primary</button>
+                                        <button class="btn btn-outline-success">Success Outline</button>
+                                        <button class="btn btn-danger btn-sm">Small Danger</button>
+                                        <button class="btn btn-warning btn-lg">Large Warning</button>
+                                    </div>
+                                    <div class="d-grid gap-2">
+                                        <button class="btn btn-dark" type="button">Full Width Block Button</button>
+                                    </div>
+                                    <div class="d-flex gap-2 mt-3">
+                                        <button class="btn btn-primary rounded-pill px-4">Pill Button</button>
+                                        <button class="btn btn-secondary d-inline-flex align-items-center gap-2">
+                                            <i class="bi bi-share"></i> Icon Button
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="fw-bold mb-2 small text-muted text-uppercase">Code Copy Section</div>
+                                <div class="code-container">
+                                    <div class="code-header">
+                                        <span class="code-language">HTML</span>
+                                        <button class="copy-btn"><i class="bi bi-clipboard me-1"></i> Copy</button>
+                                    </div>
+                                    <pre class="code-pre"><code>&lt;!-- Standard Theme Buttons --&gt;
+&lt;button class=&quot;btn btn-primary&quot;&gt;Primary Button&lt;/button&gt;
+&lt;button class=&quot;btn btn-outline-success&quot;&gt;Success Outline&lt;/button&gt;
+&lt;button class=&quot;btn btn-danger btn-sm&quot;&gt;Small Button&lt;/button&gt;
+&lt;button class=&quot;btn btn-warning btn-lg&quot;&gt;Large Button&lt;/button&gt;
+
+&lt;!-- Full Width Block Button --&gt;
+&lt;div class=&quot;d-grid gap-2&quot;&gt;
+  &lt;button class=&quot;btn btn-dark&quot; type=&quot;button&quot;&gt;Full Width Block Button&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;!-- Round Pill Shape &amp; Icon buttons --&gt;
+&lt;button class=&quot;btn btn-primary rounded-pill px-4&quot;&gt;Pill Button&lt;/button&gt;
+&lt;button class=&quot;btn btn-secondary d-inline-flex align-items-center gap-2&quot;&gt;
+  &lt;i class=&quot;bi bi-share&quot;&gt;&lt;/i&gt; Icon Button
+&lt;/button&gt;</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 10: Timeline Section -->
+            <section class="scroll-section" id="timeline-section">
+                <div class="component-card">
+                    <div class="component-header-section d-flex justify-content-between align-items-center">
+                        <h2 class="h4 mb-0">Education Timeline</h2>
+                        <span class="badge bg-warning-subtle text-warning component-badge">ELEMENTS</span>
+                    </div>
+                    <div class="component-body-section">
+                        <p class="text-muted">A stylish vertical progression layout representing academic history, course achievements, or milestones.</p>
+                        <div class="row g-4">
+                            <div class="col-xl-6">
+                                <div class="fw-bold mb-2 small text-muted text-uppercase">Timeline Preview</div>
+                                <div class="preview-container">
+                                    <div class="timeline-wrapper w-100">
+                                        <!-- Step 1 -->
+                                        <div class="timeline-item">
+                                            <div class="timeline-dot"></div>
+                                            <div class="timeline-card">
+                                                <div class="timeline-date">2023 - 2025</div>
+                                                <h6 class="mb-1 fw-bold">Master of Computer Science</h6>
+                                                <span class="text-muted small d-block mb-2">Thinkori Academy Graduate</span>
+                                                <p class="small text-muted mb-0">Specialized in Machine Learning algorithms, backend databases design, and responsive frontend systems integration.</p>
+                                            </div>
+                                        </div>
+                                        <!-- Step 2 -->
+                                        <div class="timeline-item">
+                                            <div class="timeline-dot"></div>
+                                            <div class="timeline-card">
+                                                <div class="timeline-date">2019 - 2023</div>
+                                                <h6 class="mb-1 fw-bold">Bachelor of Science in Engineering</h6>
+                                                <span class="text-muted small d-block mb-2">National University</span>
+                                                <p class="small text-muted mb-0">Completed foundational modules in OOP, software development architectures, systems analysis, and data engineering.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="fw-bold mb-2 small text-muted text-uppercase">Code Copy Section</div>
+                                <div class="code-container">
+                                    <div class="code-header">
+                                        <span class="code-language">HTML Structure</span>
+                                        <button class="copy-btn"><i class="bi bi-clipboard me-1"></i> Copy</button>
+                                    </div>
+                                    <pre class="code-pre"><code>&lt;!-- Education Vertical Timeline (Requires timeline-wrapper classes in style.css) --&gt;
+&lt;div class=&quot;timeline-wrapper&quot;&gt;
+  &lt;!-- Timeline Item 1 --&gt;
+  &lt;div class=&quot;timeline-item&quot;&gt;
+    &lt;div class=&quot;timeline-dot&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;timeline-card&quot;&gt;
+      &lt;div class=&quot;timeline-date&quot;&gt;2023 - 2025&lt;/div&gt;
+      &lt;h6 class=&quot;mb-1 fw-bold&quot;&gt;Master of Computer Science&lt;/h6&gt;
+      &lt;span class=&quot;text-muted small d-block mb-2&quot;&gt;Thinkori Academy Graduate&lt;/span&gt;
+      &lt;p class=&quot;small text-muted mb-0&quot;&gt;Specialized in Machine Learning algorithms, backend databases design, and responsive frontend systems integration.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Timeline Item 2 --&gt;
+  &lt;div class=&quot;timeline-item&quot;&gt;
+    &lt;div class=&quot;timeline-dot&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;timeline-card&quot;&gt;
+      &lt;div class=&quot;timeline-date&quot;&gt;2019 - 2023&lt;/div&gt;
+      &lt;h6 class=&quot;mb-1 fw-bold&quot;&gt;Bachelor of Science in Engineering&lt;/h6&gt;
+      &lt;span class=&quot;text-muted small d-block mb-2&quot;&gt;National University&lt;/span&gt;
+      &lt;p class=&quot;small text-muted mb-0&quot;&gt;Completed foundational modules in OOP, software development architectures, systems analysis, and data engineering.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 11: Many type of list -->
+            <section class="scroll-section" id="lists-section">
+                <div class="component-card">
+                    <div class="component-header-section d-flex justify-content-between align-items-center">
+                        <h2 class="h4 mb-0">Many Type of Lists</h2>
+                        <span class="badge bg-warning-subtle text-warning component-badge">ELEMENTS</span>
+                    </div>
+                    <div class="component-body-section">
+                        <p class="text-muted">A collection of rich list patterns, check list blocks, and badge-aligned structures.</p>
+                        <div class="row g-4">
+                            <div class="col-xl-6">
+                                <div class="fw-bold mb-2 small text-muted text-uppercase">List Previews</div>
+                                <div class="preview-container">
+                                    <!-- List with badges -->
+                                    <ul class="list-group mb-3">
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            Premium UI Kit
+                                            <span class="badge bg-primary rounded-pill">Active</span>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            Documentation Draft
+                                            <span class="badge bg-secondary rounded-pill">Pending</span>
+                                        </li>
+                                    </ul>
+                                    <!-- Checks list -->
+                                    <ul class="list-group list-group-flush mb-0">
+                                        <li class="list-group-item border-0 px-0 d-flex gap-2">
+                                            <i class="bi bi-patch-check-fill text-success"></i> Fully responsive layout framework.
+                                        </li>
+                                        <li class="list-group-item border-0 px-0 d-flex gap-2">
+                                            <i class="bi bi-patch-check-fill text-success"></i> Comprehensive utility documentation.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="fw-bold mb-2 small text-muted text-uppercase">Code Copy Section</div>
+                                <div class="code-container">
+                                    <div class="code-header">
+                                        <span class="code-language">HTML</span>
+                                        <button class="copy-btn"><i class="bi bi-clipboard me-1"></i> Copy</button>
+                                    </div>
+                                    <pre class="code-pre"><code>&lt;!-- List Group with Badges --&gt;
+&lt;ul class=&quot;list-group&quot;&gt;
+  &lt;li class=&quot;list-group-item d-flex justify-content-between align-items-center&quot;&gt;
+    Premium UI Kit
+    &lt;span class=&quot;badge bg-primary rounded-pill&quot;&gt;Active&lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;list-group-item d-flex justify-content-between align-items-center&quot;&gt;
+    Documentation Draft
+    &lt;span class=&quot;badge bg-secondary rounded-pill&quot;&gt;Pending&lt;/span&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- Checkmark Icon List --&gt;
+&lt;ul class=&quot;list-group list-group-flush&quot;&gt;
+  &lt;li class=&quot;list-group-item border-0 px-0 d-flex gap-2&quot;&gt;
+    &lt;i class=&quot;bi bi-patch-check-fill text-success&quot;&gt;&lt;/i&gt; Fully responsive layout framework.
+  &lt;/li&gt;
+  &lt;li class=&quot;list-group-item border-0 px-0 d-flex gap-2&quot;&gt;
+    &lt;i class=&quot;bi bi-patch-check-fill text-success&quot;&gt;&lt;/i&gt; Comprehensive utility documentation.
+  &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 12: Card Variations -->
+            <section class="scroll-section" id="cards-section">
+                <div class="component-card">
+                    <div class="component-header-section d-flex justify-content-between align-items-center">
+                        <h2 class="h4 mb-0">Card Variations</h2>
+                        <span class="badge bg-danger-subtle text-danger component-badge">CARDS</span>
+                    </div>
+                    <div class="component-body-section">
+                        <p class="text-muted">Layout structures showing full image width panels, side image elements, and category cards.</p>
+                        <div class="row g-4">
+                            <div class="col-xl-6">
+                                <div class="fw-bold mb-2 small text-muted text-uppercase">Cards Preview</div>
+                                <div class="preview-container gap-3">
+                                    <!-- Full Image Card -->
+                                    <div class="card shadow-sm w-100 mb-3" style="max-width: 320px; overflow: hidden;">
+                                        <div class="bg-primary-subtle text-primary py-4 text-center fw-bold">
+                                            <i class="bi bi-image fs-1 d-block mb-1"></i> Card Image Banner
+                                        </div>
+                                        <div class="card-body">
+                                            <h6 class="card-title fw-bold">Full Image Top Card</h6>
+                                            <p class="card-text small text-muted">Standard top image panel layout suitable for grids and landing portals.</p>
+                                            <a href="#" class="btn btn-primary btn-sm">Explore Page</a>
+                                        </div>
+                                    </div>
+                                    <!-- Side Image Card -->
+                                    <div class="card shadow-sm w-100" style="max-width: 480px; overflow: hidden;">
+                                        <div class="row g-0">
+                                            <div class="col-4 bg-info-subtle text-info d-flex align-items-center justify-content-center fw-bold">
+                                                <i class="bi bi-file-image fs-2"></i>
+                                            </div>
+                                            <div class="col-8">
+                                                <div class="card-body py-3">
+                                                    <h6 class="card-title fw-bold mb-1">Side Image Card</h6>
+                                                    <p class="card-text small text-muted mb-2">Compact horizontal layout.</p>
+                                                    <a href="#" class="btn btn-outline-info btn-sm py-0 px-2 small" style="font-size: 0.75rem;">View</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="fw-bold mb-2 small text-muted text-uppercase">Code Copy Section</div>
+                                <div class="code-container">
+                                    <div class="code-header">
+                                        <span class="code-language">HTML</span>
+                                        <button class="copy-btn"><i class="bi bi-clipboard me-1"></i> Copy</button>
+                                    </div>
+                                    <pre class="code-pre"><code>&lt;!-- Full Image Card --&gt;
+&lt;div class=&quot;card shadow-sm&quot; style=&quot;max-width: 320px;&quot;&gt;
+  &lt;img src=&quot;banner.jpg&quot; class=&quot;card-img-top&quot; alt=&quot;Card Header Banner&quot;&gt;
+  &lt;div class=&quot;card-body&quot;&gt;
+    &lt;h6 class=&quot;card-title fw-bold&quot;&gt;Full Image Top Card&lt;/h6&gt;
+    &lt;p class=&quot;card-text small text-muted&quot;&gt;Standard top image panel layout suitable for grids.&lt;/p&gt;
+    &lt;a href=&quot;#&quot; class=&quot;btn btn-primary btn-sm&quot;&gt;Explore Page&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Horizontal Side Image Card --&gt;
+&lt;div class=&quot;card shadow-sm&quot; style=&quot;max-width: 480px; overflow: hidden;&quot;&gt;
+  &lt;div class=&quot;row g-0&quot;&gt;
+    &lt;div class=&quot;col-4&quot;&gt;
+      &lt;img src=&quot;thumbnail.jpg&quot; class=&quot;img-fluid rounded-start h-100 w-100 object-fit-cover&quot; alt=&quot;Thumb&quot;&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;col-8&quot;&gt;
+      &lt;div class=&quot;card-body py-3&quot;&gt;
+        &lt;h6 class=&quot;card-title fw-bold mb-1&quot;&gt;Side Image Card&lt;/h6&gt;
+        &lt;p class=&quot;card-text small text-muted mb-2&quot;&gt;Compact horizontal layout.&lt;/p&gt;
+        &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-info btn-sm&quot;&gt;View Details&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 13: Multi-Column Grids -->
+            <section class="scroll-section" id="card-grids-section">
+                <div class="component-card">
+                    <div class="component-header-section d-flex justify-content-between align-items-center">
+                        <h2 class="h4 mb-0">Multi-Column Grids</h2>
+                        <span class="badge bg-danger-subtle text-danger component-badge">CARDS</span>
+                    </div>
+                    <div class="component-body-section">
+                        <p class="text-muted">Standard responsive grid configurations matching 2, 3, and 4 columns layouts for card content structures.</p>
+                        <div class="row g-4">
+                            <div class="col-xl-6">
+                                <div class="fw-bold mb-2 small text-muted text-uppercase">Grid Formats Preview</div>
+                                <div class="preview-container gap-4">
+                                    <!-- 3 Column grid preview -->
+                                    <div class="w-100">
+                                        <div class="small fw-bold text-muted mb-2">3-Column Grid Layout</div>
+                                        <div class="row g-2">
+                                            <div class="col-4">
+                                                <div class="p-2 border rounded bg-body-tertiary text-center small fw-semibold">Card A</div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="p-2 border rounded bg-body-tertiary text-center small fw-semibold">Card B</div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="p-2 border rounded bg-body-tertiary text-center small fw-semibold">Card C</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 4 Column grid preview -->
+                                    <div class="w-100">
+                                        <div class="small fw-bold text-muted mb-2">4-Column Grid Layout</div>
+                                        <div class="row g-2">
+                                            <div class="col-3">
+                                                <div class="p-1 border rounded bg-body-tertiary text-center small fw-semibold" style="font-size:0.75rem;">Card 1</div>
+                                            </div>
+                                            <div class="col-3">
+                                                <div class="p-1 border rounded bg-body-tertiary text-center small fw-semibold" style="font-size:0.75rem;">Card 2</div>
+                                            </div>
+                                            <div class="col-3">
+                                                <div class="p-1 border rounded bg-body-tertiary text-center small fw-semibold" style="font-size:0.75rem;">Card 3</div>
+                                            </div>
+                                            <div class="col-3">
+                                                <div class="p-1 border rounded bg-body-tertiary text-center small fw-semibold" style="font-size:0.75rem;">Card 4</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="fw-bold mb-2 small text-muted text-uppercase">Code Copy Section</div>
+                                <div class="code-container">
+                                    <div class="code-header">
+                                        <span class="code-language">HTML</span>
+                                        <button class="copy-btn"><i class="bi bi-clipboard me-1"></i> Copy</button>
+                                    </div>
+                                    <pre class="code-pre"><code>&lt;!-- 3-Column Grid Configuration --&gt;
+&lt;div class=&quot;row row-cols-1 row-cols-md-3 g-4&quot;&gt;
+  &lt;div class=&quot;col&quot;&gt;
+    &lt;div class=&quot;card h-100 shadow-sm&quot;&gt;
+      &lt;div class=&quot;card-body&quot;&gt;Card Item A Content&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col&quot;&gt;
+    &lt;div class=&quot;card h-100 shadow-sm&quot;&gt;
+      &lt;div class=&quot;card-body&quot;&gt;Card Item B Content&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col&quot;&gt;
+    &lt;div class=&quot;card h-100 shadow-sm&quot;&gt;
+      &lt;div class=&quot;card-body&quot;&gt;Card Item C Content&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 4-Column Grid Configuration --&gt;
+&lt;div class=&quot;row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3 mt-4&quot;&gt;
+  &lt;div class=&quot;col&quot;&gt;&lt;div class=&quot;card p-3 shadow-sm h-100&quot;&gt;Card 1&lt;/div&gt;&lt;/div&gt;
+  &lt;div class=&quot;col&quot;&gt;&lt;div class=&quot;card p-3 shadow-sm h-100&quot;&gt;Card 2&lt;/div&gt;&lt;/div&gt;
+  &lt;div class=&quot;col&quot;&gt;&lt;div class=&quot;card p-3 shadow-sm h-100&quot;&gt;Card 3&lt;/div&gt;&lt;/div&gt;
+  &lt;div class=&quot;col&quot;&gt;&lt;div class=&quot;card p-3 shadow-sm h-100&quot;&gt;Card 4&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 14: Sidebar Component -->
+            <section class="scroll-section" id="sidebars-section">
+                <div class="component-card">
+                    <div class="component-header-section d-flex justify-content-between align-items-center">
+                        <h2 class="h4 mb-0">Sidebar Component</h2>
+                        <span class="badge bg-danger-subtle text-danger component-badge">CARDS</span>
+                    </div>
+                    <div class="component-body-section">
+                        <p class="text-muted">An embedded navigation layout widget useful for administration back-offices or documentation sub-menus.</p>
+                        <div class="row g-4">
+                            <div class="col-xl-6">
+                                <div class="fw-bold mb-2 small text-muted text-uppercase">Sidebar Widget Preview</div>
+                                <div class="preview-container px-3">
+                                    <div class="p-3 bg-body-tertiary rounded w-100" style="max-width: 250px; border: 1px solid var(--sidebar-border);">
+                                        <span class="fs-6 fw-bold mb-3 d-block text-primary"><i class="bi bi-speedometer2"></i> Dashboard</span>
+                                        <ul class="nav nav-pills flex-column mb-auto small">
+                                            <li class="nav-item mb-1">
+                                                <a href="#" class="nav-link active py-1 px-2" aria-current="page"><i class="bi bi-house-door me-2"></i> Home</a>
+                                            </li>
+                                            <li class="nav-item mb-1">
+                                                <a href="#" class="nav-link link-body-emphasis py-1 px-2"><i class="bi bi-graph-up me-2"></i> Analytics</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="#" class="nav-link link-body-emphasis py-1 px-2"><i class="bi bi-gear me-2"></i> Settings</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="fw-bold mb-2 small text-muted text-uppercase">Code Copy Section</div>
+                                <div class="code-container">
+                                    <div class="code-header">
+                                        <span class="code-language">HTML</span>
+                                        <button class="copy-btn"><i class="bi bi-clipboard me-1"></i> Copy</button>
+                                    </div>
+                                    <pre class="code-pre"><code>&lt;div class=&quot;p-3 bg-body-tertiary rounded&quot; style=&quot;max-width: 280px;&quot;&gt;
+  &lt;span class=&quot;fs-6 fw-bold mb-3 d-block text-primary&quot;&gt;
+    &lt;i class=&quot;bi bi-speedometer2&quot;&gt;&lt;/i&gt; Dashboard
+  &lt;/span&gt;
+  &lt;ul class=&quot;nav nav-pills flex-column mb-auto small&quot;&gt;
+    &lt;li class=&quot;nav-item mb-1&quot;&gt;
+      &lt;a href=&quot;#&quot; class=&quot;nav-link active py-1 px-2&quot; aria-current=&quot;page&quot;&gt;
+        &lt;i class=&quot;bi bi-house-door me-2&quot;&gt;&lt;/i&gt; Home
+      &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;nav-item mb-1&quot;&gt;
+      &lt;a href=&quot;#&quot; class=&quot;nav-link link-body-emphasis py-1 px-2&quot;&gt;
+        &lt;i class=&quot;bi bi-graph-up me-2&quot;&gt;&lt;/i&gt; Analytics
+      &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;nav-item&quot;&gt;
+      &lt;a href=&quot;#&quot; class=&quot;nav-link link-body-emphasis py-1 px-2&quot;&gt;
+        &lt;i class=&quot;bi bi-gear me-2&quot;&gt;&lt;/i&gt; Settings
+      &lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 15: Big Footer -->
+            <section class="scroll-section" id="big-footer-section">
+                <div class="component-card">
+                    <div class="component-header-section d-flex justify-content-between align-items-center">
+                        <h2 class="h4 mb-0">Big Footer</h2>
+                        <span class="badge bg-danger-subtle text-danger component-badge">STRUCTURE</span>
+                    </div>
+                    <div class="component-body-section">
+                        <p class="text-muted">A structured footer component containing multi-column category navigations, newsletter form widgets, and social icons links.</p>
+                        <div class="row g-4">
+                            <div class="col-xl-6">
+                                <div class="fw-bold mb-2 small text-muted text-uppercase">Big Footer Preview</div>
+                                <div class="preview-container px-0 py-2">
+                                    <div class="bg-dark text-light p-4 w-100 small">
+                                        <div class="row g-3 mb-3">
+                                            <div class="col-md-4">
+                                                <h6 class="text-primary fw-bold mb-2">Thinkori</h6>
+                                                <p class="text-muted small">We build creative solutions making programming tasks smooth and accessible.</p>
+                                            </div>
+                                            <div class="col-6 col-md-4">
+                                                <h6 class="text-white fw-bold mb-2">Quick Links</h6>
+                                                <ul class="list-unstyled text-muted small mb-0">
+                                                    <li><a href="#" class="text-secondary text-decoration-none">About Us</a></li>
+                                                    <li><a href="#" class="text-secondary text-decoration-none">Privacy Policy</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-6 col-md-4">
+                                                <h6 class="text-white fw-bold mb-2">Newsletter</h6>
+                                                <div class="input-group input-group-sm">
+                                                    <input type="email" class="form-control" placeholder="Email">
+                                                    <button class="btn btn-primary" type="button">Join</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="border-top border-secondary pt-2 text-center text-muted" style="font-size:0.75rem;">
+                                            &copy; 2026 Thinkori. All rights reserved.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="fw-bold mb-2 small text-muted text-uppercase">Code Copy Section</div>
+                                <div class="code-container">
+                                    <div class="code-header">
+                                        <span class="code-language">HTML</span>
+                                        <button class="copy-btn"><i class="bi bi-clipboard me-1"></i> Copy</button>
+                                    </div>
+                                    <pre class="code-pre"><code>&lt;footer class=&quot;bg-dark text-light py-5 mt-5&quot;&gt;
+  &lt;div class=&quot;container&quot;&gt;
+    &lt;div class=&quot;row g-4&quot;&gt;
+      &lt;div class=&quot;col-md-4&quot;&gt;
+        &lt;h5 class=&quot;text-primary fw-bold&quot;&gt;Thinkori&lt;/h5&gt;
+        &lt;p class=&quot;text-muted&quot;&gt;We build creative solutions making programming tasks smooth and accessible for newcomers and experts alike.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;col-6 col-md-4&quot;&gt;
+        &lt;h5 class=&quot;text-white fw-bold&quot;&gt;Quick Links&lt;/h5&gt;
+        &lt;ul class=&quot;list-unstyled text-muted&quot;&gt;
+          &lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;text-secondary text-decoration-none&quot;&gt;About Us&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;text-secondary text-decoration-none&quot;&gt;Services&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;text-secondary text-decoration-none&quot;&gt;Privacy Policy&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;col-6 col-md-4&quot;&gt;
+        &lt;h5 class=&quot;text-white fw-bold&quot;&gt;Newsletter&lt;/h5&gt;
+        &lt;p class=&quot;text-muted small&quot;&gt;Stay updated with latest bootstrap tutorials.&lt;/p&gt;
+        &lt;div class=&quot;input-group&quot;&gt;
+          &lt;input type=&quot;email&quot; class=&quot;form-control&quot; placeholder=&quot;Your Email&quot;&gt;
+          &lt;button class=&quot;btn btn-primary&quot; type=&quot;button&quot;&gt;Subscribe&lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;border-top border-secondary mt-4 pt-3 text-center text-muted small&quot;&gt;
+      &amp;copy; 2026 Thinkori. All rights reserved.
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 16: Simple Footer -->
+            <section class="scroll-section" id="footer-section">
+                <div class="component-card">
+                    <div class="component-header-section d-flex justify-content-between align-items-center">
+                        <h2 class="h4 mb-0">Simple Footer</h2>
+                        <span class="badge bg-danger-subtle text-danger component-badge">STRUCTURE</span>
+                    </div>
+                    <div class="component-body-section">
+                        <p class="text-muted">A simple flat line ribbon footer containing copyright text info and inline menu links.</p>
+                        <div class="row g-4">
+                            <div class="col-xl-6">
+                                <div class="fw-bold mb-2 small text-muted text-uppercase">Simple Footer Preview</div>
+                                <div class="preview-container px-0 py-2">
+                                    <div class="bg-body-secondary py-3 px-3 w-100 text-center">
+                                        <div class="container-fluid d-flex flex-wrap justify-content-between align-items-center gap-2 small">
+                                            <span class="text-muted">&copy; 2026 thinkori.com</span>
+                                            <div class="d-flex gap-3">
+                                                <a href="#" class="text-secondary text-decoration-none">Terms</a>
+                                                <a href="#" class="text-secondary text-decoration-none">Help</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="fw-bold mb-2 small text-muted text-uppercase">Code Copy Section</div>
+                                <div class="code-container">
+                                    <div class="code-header">
+                                        <span class="code-language">HTML</span>
+                                        <button class="copy-btn"><i class="bi bi-clipboard me-1"></i> Copy</button>
+                                    </div>
+                                    <pre class="code-pre"><code>&lt;footer class=&quot;bg-body-secondary py-3 border-top&quot;&gt;
+  &lt;div class=&quot;container d-flex flex-wrap justify-content-between align-items-center&quot;&gt;
+    &lt;span class=&quot;text-muted&quot;&gt;&amp;copy; 2026 thinkori.com&lt;/span&gt;
+    &lt;ul class=&quot;nav col-md-4 justify-content-end&quot;&gt;
+      &lt;li class=&quot;nav-item&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;nav-link px-2 text-muted small&quot;&gt;Terms&lt;/a&gt;&lt;/li&gt;
+      &lt;li class=&quot;nav-item&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;nav-link px-2 text-muted small&quot;&gt;Help&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 17: Post Tags & Comments -->
+            <section class="scroll-section" id="blog-comments-section">
+                <div class="component-card">
+                    <div class="component-header-section d-flex justify-content-between align-items-center">
+                        <h2 class="h4 mb-0">Post Tags & Comments</h2>
+                        <span class="badge bg-warning-subtle text-warning component-badge">INTERACTION</span>
+                    </div>
+                    <div class="component-body-section">
+                        <p class="text-muted">Blog-style content elements. Lists categorical keywords alongside a nested user comments thread.</p>
+                        <div class="row g-4">
+                            <div class="col-xl-6">
+                                <div class="fw-bold mb-2 small text-muted text-uppercase">Post Comments Preview</div>
+                                <div class="preview-container">
+                                    <!-- Categorical Tags -->
+                                    <div class="d-flex flex-wrap gap-1 mb-3">
+                                        <span class="badge bg-primary-subtle text-primary">#Bootstrap</span>
+                                        <span class="badge bg-success-subtle text-success">#WebDesign</span>
+                                        <span class="badge bg-info-subtle text-info">#Newcomer</span>
+                                    </div>
+                                    <!-- Comments list -->
+                                    <div class="w-100">
+                                        <div class="d-flex gap-2 mb-2">
+                                            <div class="bg-secondary text-white rounded-circle d-flex align-items-center justify-content-center fw-bold" style="width: 32px; height: 32px; font-size: 0.8rem;">JS</div>
+                                            <div class="p-2 border rounded bg-body-tertiary flex-grow-1 small">
+                                                <div class="fw-bold mb-1">John Doe <span class="text-muted fw-normal" style="font-size:0.7rem;">2 hours ago</span></div>
+                                                This bootstrap guide is extremely helpful for beginners. Thanks a lot!
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="fw-bold mb-2 small text-muted text-uppercase">Code Copy Section</div>
+                                <div class="code-container">
+                                    <div class="code-header">
+                                        <span class="code-language">HTML</span>
+                                        <button class="copy-btn"><i class="bi bi-clipboard me-1"></i> Copy</button>
+                                    </div>
+                                    <pre class="code-pre"><code>&lt;!-- Post Tags --&gt;
+&lt;div class=&quot;d-flex flex-wrap gap-1 mb-4&quot;&gt;
+  &lt;span class=&quot;badge bg-primary-subtle text-primary&quot;&gt;#Bootstrap&lt;/span&gt;
+  &lt;span class=&quot;badge bg-success-subtle text-success&quot;&gt;#WebDesign&lt;/span&gt;
+  &lt;span class=&quot;badge bg-info-subtle text-info&quot;&gt;#Newcomer&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;!-- Blog Comments thread --&gt;
+&lt;div class=&quot;comments-section&quot;&gt;
+  &lt;div class=&quot;d-flex gap-3 mb-3&quot;&gt;
+    &lt;div class=&quot;bg-secondary text-white rounded-circle d-flex align-items-center justify-content-center fw-bold&quot; style=&quot;width: 40px; height: 40px;&quot;&gt;JS&lt;/div&gt;
+    &lt;div class=&quot;p-3 border rounded bg-body-tertiary flex-grow-1&quot;&gt;
+      &lt;div class=&quot;d-flex justify-content-between mb-1&quot;&gt;
+        &lt;span class=&quot;fw-bold&quot;&gt;John Doe&lt;/span&gt;
+        &lt;span class=&quot;text-muted small&quot;&gt;2 hours ago&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;p class=&quot;mb-0 small&quot;&gt;This bootstrap guide is extremely helpful for beginners. Thanks a lot!&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 18: Login Form -->
+            <section class="scroll-section" id="login-section">
+                <div class="component-card">
+                    <div class="component-header-section d-flex justify-content-between align-items-center">
+                        <h2 class="h4 mb-0">Login Form</h2>
+                        <span class="badge bg-warning-subtle text-warning component-badge">INTERACTION</span>
+                    </div>
+                    <div class="component-body-section">
+                        <p class="text-muted">A clean, responsive card-wrapped user login form complete with email inputs and validation classes.</p>
+                        <div class="row g-4">
+                            <div class="col-xl-6">
+                                <div class="fw-bold mb-2 small text-muted text-uppercase">Login Form Preview</div>
+                                <div class="preview-container">
+                                    <div class="card p-3 shadow-sm w-100" style="max-width: 300px;">
+                                        <h6 class="fw-bold mb-3 text-center text-primary">Member Portal</h6>
+                                        <form onsubmit="event.preventDefault();">
+                                            <div class="mb-2">
+                                                <label class="form-label small mb-1">Email address</label>
+                                                <input type="email" class="form-control form-control-sm" placeholder="name@example.com" required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label small mb-1">Password</label>
+                                                <input type="password" class="form-control form-control-sm" placeholder="••••••••" required>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary btn-sm w-100">Sign In</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="fw-bold mb-2 small text-muted text-uppercase">Code Copy Section</div>
+                                <div class="code-container">
+                                    <div class="code-header">
+                                        <span class="code-language">HTML</span>
+                                        <button class="copy-btn"><i class="bi bi-clipboard me-1"></i> Copy</button>
+                                    </div>
+                                    <pre class="code-pre"><code>&lt;div class=&quot;card p-4 shadow-sm w-100&quot; style=&quot;max-width: 360px;&quot;&gt;
+  &lt;h5 class=&quot;fw-bold mb-3 text-center text-primary&quot;&gt;Member Login&lt;/h5&gt;
+  &lt;form&gt;
+    &lt;div class=&quot;mb-3&quot;&gt;
+      &lt;label for=&quot;loginEmail&quot; class=&quot;form-label small&quot;&gt;Email address&lt;/label&gt;
+      &lt;input type=&quot;email&quot; class=&quot;form-control&quot; id=&quot;loginEmail&quot; placeholder=&quot;name@example.com&quot; required&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;mb-3&quot;&gt;
+      &lt;label for=&quot;loginPassword&quot; class=&quot;form-label small&quot;&gt;Password&lt;/label&gt;
+      &lt;input type=&quot;password&quot; class=&quot;form-control&quot; id=&quot;loginPassword&quot; placeholder=&quot;••••••••&quot; required&gt;
+    &lt;/div&gt;
+    &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary w-100&quot;&gt;Sign In&lt;/button&gt;
+  &lt;/form&gt;
+&lt;/div&gt;</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 19: Feedback Section -->
+            <section class="scroll-section" id="feedback-section">
+                <div class="component-card">
+                    <div class="component-header-section d-flex justify-content-between align-items-center">
+                        <h2 class="h4 mb-0">Feedback Section</h2>
+                        <span class="badge bg-warning-subtle text-warning component-badge">INTERACTION</span>
+                    </div>
+                    <div class="component-body-section">
+                        <p class="text-muted">A rating questionnaire interface allowing users to score pages via interactive star clicks and comment inputs.</p>
+                        <div class="row g-4">
+                            <div class="col-xl-6">
+                                <div class="fw-bold mb-2 small text-muted text-uppercase">Feedback Form Preview</div>
+                                <div class="preview-container">
+                                    <div class="card p-3 shadow-sm w-100">
+                                        <h6 class="fw-bold mb-2">Send Feedback</h6>
+                                        <div class="rating-stars mb-2">
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star"></i>
+                                        </div>
+                                        <form onsubmit="event.preventDefault();">
+                                            <div class="mb-2">
+                                                <textarea class="form-control form-control-sm" rows="2" placeholder="Tell us your experience..." required></textarea>
+                                            </div>
+                                            <button type="submit" class="btn btn-sm btn-primary">Submit Review</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="fw-bold mb-2 small text-muted text-uppercase">Code Copy Section</div>
+                                <div class="code-container">
+                                    <div class="code-header">
+                                        <span class="code-language">HTML</span>
+                                        <button class="copy-btn"><i class="bi bi-clipboard me-1"></i> Copy</button>
+                                    </div>
+                                    <pre class="code-pre"><code>&lt;div class=&quot;card p-4 shadow-sm w-100&quot;&gt;
+  &lt;h5 class=&quot;fw-bold mb-2&quot;&gt;Rate Your Experience&lt;/h5&gt;
+  &lt;!-- Star Rating Container (Requires script.js listener) --&gt;
+  &lt;div class=&quot;rating-stars mb-3&quot;&gt;
+    &lt;i class=&quot;bi bi-star&quot;&gt;&lt;/i&gt;
+    &lt;i class=&quot;bi bi-star&quot;&gt;&lt;/i&gt;
+    &lt;i class=&quot;bi bi-star&quot;&gt;&lt;/i&gt;
+    &lt;i class=&quot;bi bi-star&quot;&gt;&lt;/i&gt;
+    &lt;i class=&quot;bi bi-star&quot;&gt;&lt;/i&gt;
+  &lt;/div&gt;
+  &lt;form&gt;
+    &lt;div class=&quot;mb-3&quot;&gt;
+      &lt;textarea class=&quot;form-control&quot; rows=&quot;3&quot; placeholder=&quot;Tell us your experience...&quot; required&gt;&lt;/textarea&gt;
+    &lt;/div&gt;
+    &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;Submit Review&lt;/button&gt;
+  &lt;/form&gt;
+&lt;/div&gt;</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 20: Real-time JS Function -->
+            <section class="scroll-section" id="realtime-section">
+                <div class="component-card">
+                    <div class="component-header-section d-flex justify-content-between align-items-center">
+                        <h2 class="h4 mb-0">Real-time JS Function</h2>
+                        <span class="badge bg-success-subtle text-success component-badge">EXTENSIBILITY</span>
+                    </div>
+                    <div class="component-body-section">
+                        <p class="text-muted">A specialized dynamic widget engine. Invoke <code>initRealTimeBootstrap(id)</code> on any container element to inject a live clock, dynamic system uptime counter, and real-time character typing counter widgets.</p>
+                        <div class="row g-4">
+                            <div class="col-xl-6">
+                                <div class="fw-bold mb-2 small text-muted text-uppercase">Live Active Widget Preview</div>
+                                <div class="preview-container px-2">
+                                    <!-- Target ID for live injection -->
+                                    <div class="w-100" id="realtime-widget-container">
+                                        <!-- Will be dynamically injected by script.js -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="fw-bold mb-2 small text-muted text-uppercase">Code Copy Section</div>
+                                <div class="code-container">
+                                    <div class="code-header">
+                                        <span class="code-language">JavaScript & HTML Setup</span>
+                                        <button class="copy-btn"><i class="bi bi-clipboard me-1"></i> Copy</button>
+                                    </div>
+                                    <pre class="code-pre"><code>&lt;!-- HTML target container. Place anywhere you want the real-time panel to render --&gt;
+&lt;div id=&quot;my-custom-realtime-div&quot;&gt;&lt;/div&gt;
+
+&lt;!-- JavaScript Integration. Call this in script.js after document load --&gt;
+&lt;script&gt;
+  // Initializes clock ticker, timezone reader, and word counts in target ID
+  initRealTimeBootstrap(&#x27;my-custom-realtime-div&#x27;);
+&lt;/script&gt;</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Custom script logic -->
+    <script src="script.js"></script>
+</body>
+</html>
